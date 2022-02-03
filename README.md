@@ -86,6 +86,7 @@ The poor results can be (partly) explained by the imbalance of classes. Therefor
 <br/>
 For training on the altered data set, the hyperparameters of the previously best performing models were chosen, the results can be found below:
 <br/>
+
 | model_name     | learning_rate | batch_size | Precision(macro) | Precision(micro) | Precision(weighted) | Recall(macro) | Recall(micro) | Recall(weighted) | F1(macro) | F1(micro) | F1(weighted) | Accuracy |
 |----------------|---------------|------------|------------------|------------------|---------------------|---------------|---------------|------------------|-----------|-----------|--------------|----------|
 | ViT_tune_Red_1 | 3e-05           | 8          | 0.58             | 0.62             | **0.64**                | **0.6**           | 0.62          | 0.62             | **0.59**      | 0.62      | 0.62         | 0.62     |
