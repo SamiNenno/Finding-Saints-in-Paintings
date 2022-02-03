@@ -61,3 +61,20 @@ The ViT model that I used can be found on [huggingface](https://huggingface.co/g
 | 16 | ViT_tune_19 | 8e-05         | 64         | 0.58             | 0.66             | 0.67                | 0.56          | 0.66          | 0.66             | 0.55      | 0.66      | 0.66         | 0.66     |
 | 17 | ViT_tune_20 | 7e-05         | 64         | 0.57             | 0.67             | 0.67                | 0.51          | 0.67          | 0.67             | 0.53      | 0.67      | 0.66         | 0.67     |
 | 18 | ViT_tune_21 | 6e-05         | 64         | 0.58             | 0.67             | 0.67                | 0.51          | 0.67          | 0.67             | 0.54      | 0.67      | 0.66         | 0.67     |
+<br/>
+Vit_tune_9 (learning rate: 3e-05, batch size: 16) performed best in the most categories and achieves the highest accuracy (0.69). However, as said before, F1 and precision are more important due to the imbalance in labels. Therefore, Vit_tune_8 (learning rate: 3e-05, batch size: 8) with a macro F1 of 0.57 and Vit_tune_17 (learning rate: 2e-05, batch size: 16) with a macro precision of 0.57 are also important for the error analysis. Overall, however, it can be said that the Vision Transformer approach performed worse than the original fine-tuned CNN by Milani et al.
+<br/>
+The poor results can be (partly) explained by the imbalance of classes. Therefore, the experiment was performed a second time on an altered data set. The classes with the highest frequency (MARY and NONE), were randomly shrunk to half of their size. The other classes were augmented by a horizontal flip, such that their amount doubled. Below the illustration of the altered data set:
+<br/>
+
+
+For training on the altered data set, the hyperparameters of the previously best performing models were chosen, the results can be found below:
+<br/>
+| model_name     | learning_rate | batch_size | Precision(macro) | Precision(micro) | Precision(weighted) | Recall(macro) | Recall(micro) | Recall(weighted) | F1(macro) | F1(micro) | F1(weighted) | Accuracy |
+|----------------|---------------|------------|------------------|------------------|---------------------|---------------|---------------|------------------|-----------|-----------|--------------|----------|
+| ViT_tune_Red_1 | 0.0           | 8          | 0.58             | 0.62             | **0.64**                | **0.6**           | 0.62          | 0.62             | **0.59**      | 0.62      | 0.62         | 0.62     |
+| ViT_tune_Red_2 | 0.0           | 16         | 0.52             | 0.58             | 0.61                | 0.6           | 0.58          | 0.58             | 0.55      | 0.58      | 0.58         | 0.58     |
+| ViT_tune_Red_3 | 0.0           | 8          | 0.57             | 0.59             | 0.61                | 0.57          | 0.59          | 0.59             | 0.56      | 0.59      | 0.59         | 0.59     |
+| ViT_tune_Red_4 | 0.0           | 16         | **0.6 **             | **0.62**             | 0.63                | 0.57          | **0.62**          | **0.62**             | 0.58      | **0.62**      | **0.62**         | **0.62**     |
+
+<br/>
