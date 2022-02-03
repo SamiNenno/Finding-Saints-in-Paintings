@@ -27,3 +27,9 @@ In their paper, Milani et al. create an annotated data set of christian painting
 | 502       | JOSEPH           |
 ![](https://github.com/SamiNenno/Finding-Saints-in-Paintings/blob/main/Images/train_Distribution_original.png)
 <br/>
+The original paper used a Fully Convolutional ResNet50 network pre-trained on ImageNet. For preprocessing, they:
+- Added padding, so that the images have fixed square size
+- Normalized images
+- Augmented the data by horizontal flip
+<br/>
+Their results are depicted in the table below:<br/>
