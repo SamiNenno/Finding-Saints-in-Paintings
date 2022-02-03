@@ -66,6 +66,7 @@ Vit_tune_9 (learning rate: 3e-05, batch size: 16) performed best in the most cat
 <br/>
 The poor results can be (partly) explained by the imbalance of classes. Therefore, the experiment was performed a second time on an altered data set. The classes with the highest frequency (MARY and NONE), were randomly shrunk to half of their size. The other classes were augmented by a horizontal flip, such that their amount doubled. Below the illustration of the altered data set:
 <br/>
+
 | Frequency | Label            |
 |-----------|------------------|
 | 6431      | None             |
@@ -80,6 +81,7 @@ The poor results can be (partly) explained by the imbalance of classes. Therefor
 | 942       | PAUL             |
 | 904       | JOSEPH           |
 
+![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/train_Distribution_reduced.png)
 <br/>
 For training on the altered data set, the hyperparameters of the previously best performing models were chosen, the results can be found below:
 <br/>
