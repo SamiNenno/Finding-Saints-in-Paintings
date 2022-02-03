@@ -66,8 +66,21 @@ Vit_tune_9 (learning rate: 3e-05, batch size: 16) performed best in the most cat
 <br/>
 The poor results can be (partly) explained by the imbalance of classes. Therefore, the experiment was performed a second time on an altered data set. The classes with the highest frequency (MARY and NONE), were randomly shrunk to half of their size. The other classes were augmented by a horizontal flip, such that their amount doubled. Below the illustration of the altered data set:
 <br/>
+| Frequency | Label            |
+|-----------|------------------|
+| 6431      | None             |
+| 5932      | MARY             |
+| 2135      | PETER            |
+| 2113      | JEROME           |
+| 2082      | JOHN THE BAPTIST |
+| 1764      | FRANCIS          |
+| 1634      | MARY MAGDALENE   |
+| 1219      | CATHERINE        |
+| 1008      | SEBASTIAN        |
+| 942       | PAUL             |
+| 904       | JOSEPH           |
 
-
+<br/>
 For training on the altered data set, the hyperparameters of the previously best performing models were chosen, the results can be found below:
 <br/>
 | model_name     | learning_rate | batch_size | Precision(macro) | Precision(micro) | Precision(weighted) | Recall(macro) | Recall(micro) | Recall(weighted) | F1(macro) | F1(micro) | F1(weighted) | Accuracy |
