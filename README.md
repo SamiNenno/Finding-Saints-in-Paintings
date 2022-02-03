@@ -25,3 +25,5 @@ In their paper, Milani et al. create an annotated data set of christian painting
 | 560       | SEBASTIAN        |
 | 523       | PAUL             |
 | 502       | JOSEPH           |
+![](https://github.com/SamiNenno/Finding-Saints-in-Paintings/blob/main/Images/train_Distribution_original.png)
+<br/>
