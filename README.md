@@ -84,7 +84,7 @@ The poor results can be (partly) explained by the imbalance of classes. Therefor
 ![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/train_Distribution_reduced.png)
 <br/>
 <br/>
-For training on the altered data set, the hyperparameters of the previously best performing models were chosen, the results can be found below:
+For training on the altered data set, the hyperparameters of the previously best performing models were chosen:
 <br/>
 
 | model_name     | learning_rate | batch_size | Precision(macro) | Precision(micro) | Precision(weighted) | Recall(macro) | Recall(micro) | Recall(weighted) | F1(macro) | F1(micro) | F1(weighted) | Accuracy |
