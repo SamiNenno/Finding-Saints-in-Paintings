@@ -38,7 +38,7 @@ Their results are depicted in the table below:<br/>
 <br/>
 <br/>
 For the first take on this task, I did not perform data augmentation but normalized the images. Note that the classes are not exactly the same as in Milani et al. I used the 11 classes (10 saints + NONE) that occurred the most frequent. Due to the strong label imbalance I put a focus on (macro) F1 and precision rather than accuracy.<br/>
-The ViT model that I used can be found on [huggingface](https://huggingface.co/google/vit-base-patch16-224-in21k). For hyperparameter tuning, I focused on the learning rate and the batch size. For the epochs, early stopping on the validation error was chosen. Due to computational costs, the maximum batch size was 64, even though a bigger batch size could possibly improve the results.
+The ViT model that I used can be found on [huggingface](https://huggingface.co/google/vit-base-patch16-224-in21k). For hyperparameter tuning, I focused on the learning rate and the batch size. For the epochs, early stopping on the validation error was chosen. In most cases training stopped after 5 epochs. Increasing the learning rate correlated with an increase in epochs. Due to computational costs, the maximum batch size was 64, even though a bigger batch size could possibly improve the results.
 <br/>
 |    | model_name  | learning_rate | batch_size | Precision(macro) | Precision(micro) | Precision(weighted) | Recall(macro) | Recall(micro) | Recall(weighted) | F1(macro) | F1(micro) | F1(weighted) | Accuracy |
 |----|-------------|---------------|------------|------------------|------------------|---------------------|---------------|---------------|------------------|-----------|-----------|--------------|----------|
