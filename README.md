@@ -56,7 +56,10 @@ For the first take on this task, I did not perform data augmentation but normali
 | ViT_13     | 5e-06         | 8          | 0.49             | 0.64             | 0.42          | 0.64          | 0.44      | 0.64      | 0.64     |
 | ViT_14     | 5e-06         | 16         | 0.47             | 0.64             | 0.38          | 0.64          | 0.39      | 0.64      | 0.64     |
 <br/>
-ViT_6 (learning rate: 3e-05, batch size: 16) performed best in the most categories and achieves the highest accuracy (0.67). However, as said before, F1 and recall are more important due to the imbalance in labels. Therefore, ViT_5 (learning rate: 3e-05, batch size: 8) with a macro F1 of 0.57 and ViT_9 (learning rate: 2e-05, batch size: 8) with a macro precision of 0.56 are also important for the error analysis. Overall, however, it can be said that the Vision Transformer approach performed worse than the original fine-tuned CNN by Milani et al.
+ViT_6 (learning rate: 3e-05, batch size: 16) performed best in the most categories and achieves the highest accuracy (0.67). However, as said before, F1 and recall are more important due to the imbalance in labels. Therefore, ViT_5 (learning rate: 3e-05, batch size: 8) with a macro F1 of 0.57 and ViT_9 (learning rate: 2e-05, batch size: 8) with a macro precision of 0.56 are also important for the error analysis. Overall, however, it can be said that the Vision Transformer approach performed worse than the original fine-tuned CNN by Milani et al. Below you can find the confusion matrix for ViT_5
+
+![ViT_5](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/ViT_tune_corrected_6.png)
+
 <br/>
 The poor results can be (partly) explained by the imbalance of classes. Therefore, the experiment was performed a second time on an altered data set. The classes with the highest frequency (MARY and NONE), were randomly shrunk to half of their size. The other classes were augmented by a horizontal flip, such that their amount doubled. Below the illustration of the altered data set:
 <br/>
