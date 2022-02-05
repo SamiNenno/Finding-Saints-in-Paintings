@@ -95,21 +95,21 @@ For training on the altered data set, the hyperparameters of the previously best
 | ViT_tune_Red_4 | 2e-05           | 16         | **0.6**             | **0.62**             | 0.63                | 0.57          | **0.62**          | **0.62**             | 0.58      | **0.62**      | **0.62**         | **0.62**     |
 
 <br/>
-As it turns out the increase of F1 (XXX) and Recall (XXX) are only moderate. For an analysis via class activation maps (CAM), I therefore stuck with ViT_tune_corrected_6 which performed best according to F1 (0.57) in the first round and is trained on the entire dataset.\
-The first image shows CAM for a painting of Virgin Mary. Since one of the iconographic cues for Mary is that she holds baby Jesus, the result should not only focus on Mary herself but also on the baby in her arms. As one can see the trained model performed well on the given image in this regard.\
+As it turns out the increase of F1 (XXX) and Recall (XXX) are only moderate. For an analysis via class activation maps (CAM), I therefore stuck with ViT_tune_corrected_6 which performed best according to F1 (0.57) in the first round and is trained on the entire dataset.<br/>
+The first image shows CAM for a painting of Virgin Mary. Since one of the iconographic cues for Mary is that she holds baby Jesus, the result should not only focus on Mary herself but also on the baby in her arms. As one can see the trained model performed well on the given image in this regard.
 
 ![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/MARY_02%2B%2B.png)
 
-\Another successful CAM is that of an image of Jerome, who is usually depicted as wearing a red coat.\
+Another successful CAM is that of an image of Jerome, who is usually depicted as wearing a red coat.
 
 ![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/JEROME_03.png)
 
-\However, the next image displays how the model failed to pick up on the relevant iconographic cues. The model correctly classified this painting as showing Mary Magdalene. Yet, the reason for this classification seems to be the fact that the model depicts a woman. The long hair plus the face caused the classification. However, this applies to many persons in paintings and not exclusively to Mary Magdalene. What is more unique to paintings of her is the skull, which does not seem to have a big impact on the classification.
+However, the next image displays how the model failed to pick up on the relevant iconographic cues. The model correctly classified this painting as showing Mary Magdalene. Yet, the reason for this classification seems to be the fact that the model depicts a woman. The long hair plus the face caused the classification. However, this applies to many persons in paintings and not exclusively to Mary Magdalene. What is more unique to paintings of her is the skull, which does not seem to have a big impact on the classification.
 
 ![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/MM.png)
 
-\Another example for a correctly classified painting but based on the wrong features is this one of Sebastian. As mentioned before, Sebastian should be recognized by being tied to a post and shot with arrows. However, the model seem to have rather picked up mostly on the muscular upper body half.
+Another example for a correctly classified painting but based on the wrong features is this one of Sebastian. As mentioned before, Sebastian should be recognized by being tied to a post and shot with arrows. However, the model seem to have rather picked up mostly on the muscular upper body half.
 
 ![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/SEBASTIAN_01.png)
 
-\Overall, most CAM images did **not** highlight the relevant iconographic features. This is not surprising, given the poor performance of even the best models.
+Overall, most CAM images did **not** highlight the relevant iconographic features. This is not surprising, given the poor performance of even the best models.
