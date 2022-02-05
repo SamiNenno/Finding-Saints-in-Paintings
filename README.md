@@ -84,15 +84,14 @@ The poor results can be (partly) explained by the imbalance of classes. Therefor
 For training on the altered data set, the hyperparameters of the previously best performing models were chosen:
 <br/>
 
-| model_name     | learning_rate | batch_size | Precision(macro) | Precision(micro) | Precision(weighted) | Recall(macro) | Recall(micro) | Recall(weighted) | F1(macro) | F1(micro) | F1(weighted) | Accuracy |
-|----------------|---------------|------------|------------------|------------------|---------------------|---------------|---------------|------------------|-----------|-----------|--------------|----------|
-| ViT_tune_Red_1 | 3e-05           | 8          | 0.58             | 0.62             | **0.64**                | **0.6**           | 0.62          | 0.62             | **0.59**      | 0.62      | 0.62         | 0.62     |
-| ViT_tune_Red_2 | 3e-05          | 16         | 0.52             | 0.58             | 0.61                | 0.6           | 0.58          | 0.58             | 0.55      | 0.58      | 0.58         | 0.58     |
-| ViT_tune_Red_3 | 2e-05           | 8          | 0.57             | 0.59             | 0.61                | 0.57          | 0.59          | 0.59             | 0.56      | 0.59      | 0.59         | 0.59     |
-| ViT_tune_Red_4 | 2e-05           | 16         | **0.6**             | **0.62**             | 0.63                | 0.57          | **0.62**          | **0.62**             | 0.58      | **0.62**      | **0.62**         | **0.62**     |
+| model_name  | learning_rate | batch_size | Precision(macro) | Precision(micro) | Recall(macro) | Recall(micro) | F1(macro) | F1(micro) | Accuracy |
+|-------------|---------------|------------|------------------|------------------|---------------|---------------|-----------|-----------|----------|
+| ViT_small_1 | 3e-05         | 8          | **0.61**             | 0.6              | 0.58          | 0.6           | **0.58**      | 0.6       | 0.6      |
+| ViT_small_2 | 3e-05         | 16         | 0.55             | 0.61             | **0.61**          | 0.61          | 0.57      | 0.61      | 0.61     |
+| ViT_small_3 | 2e-05         | 8          | 0.61             | **0.62**             | 0.56          | **0.62**          | 0.57      | **0.62**      | **0.62**     |
 
 <br/>
-As it turns out the increase of F1 (XXX) and Recall (XXX) are only moderate. For an analysis via class activation maps (CAM), I therefore stuck with ViT_tune_corrected_6 which performed best according to F1 (0.57) in the first round and is trained on the entire dataset.<br/><br/>
+As it turns out the increase of F1 (+0.01) is only moderate. For an analysis via class activation maps (CAM), I therefore stuck with ViT_5 which performed best according to F1 (0.57) in the first round and is trained on the entire dataset.<br/><br/>
 The first image shows CAM for a painting of Virgin Mary. Since one of the iconographic cues for Mary is that she holds baby Jesus, the result should not only focus on Mary herself but also on the baby in her arms. As one can see the trained model performed well on the given image in this regard.
 
 ![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/MARY_02%2B%2B.png)
