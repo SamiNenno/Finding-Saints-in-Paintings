@@ -95,4 +95,4 @@ For training on the altered data set, the hyperparameters of the previously best
 | ViT_tune_Red_4 | 2e-05           | 16         | **0.6**             | **0.62**             | 0.63                | 0.57          | **0.62**          | **0.62**             | 0.58      | **0.62**      | **0.62**         | **0.62**     |
 
 <br/>
-As it turns out the increase of F1 (+0.02) and Recall (+0.03) are only moderate. For an analysis via class activation maps, I therefore stuck with Vit_tune_8 which performed best according to F1 (0.57) in the first round and is trained on the entire dataset.
+As it turns out the increase of F1 (XXX) and Recall (XXX) are only moderate. For an analysis via class activation maps, I therefore stuck with ViT_tune_corrected_6 which performed best according to F1 (0.57) in the first round and is trained on the entire dataset.
