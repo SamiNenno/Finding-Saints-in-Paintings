@@ -39,29 +39,24 @@ Their results are depicted in the table below. Note that the classes are not exa
 <br/>
 For the first take on this task, I did not perform data augmentation but normalized the images. The ViT model that I used can be found on [huggingface](https://huggingface.co/google/vit-base-patch16-224-in21k). For hyperparameter tuning, I focused on the learning rate and the batch size. For the epochs, early stopping on the validation error was chosen. In most cases training stopped after 5 epochs. Increasing the learning rate correlated with an increase in epochs. Due to computational costs, the maximum batch size was 64, even though a bigger batch size could possibly improve the results. Because of the strong label imbalance I put a focus on (macro) F1 and precision rather than accuracy
 <br/>
-|    | model_name  | learning_rate | batch_size | Precision(macro) | Precision(micro) | Precision(weighted) | Recall(macro) | Recall(micro) | Recall(weighted) | F1(macro) | F1(micro) | F1(weighted) | Accuracy |
-|----|-------------|---------------|------------|------------------|------------------|---------------------|---------------|---------------|------------------|-----------|-----------|--------------|----------|
-| 0  | ViT_tune_1  | 5e-05         | 2          | 0.58             | 0.63             | 0.63                | 0.4           | 0.63          | 0.63             | 0.45      | 0.63      | 0.62         | 0.63     |
-| 1  | ViT_tune_2  | 0.0005        | 2          | 0.05             | 0.29             | 0.21                | 0.07          | 0.29          | 0.29             | 0.06      | 0.29      | 0.24         | 0.29     |
-| 2  | ViT_tune_3  | 0.005         | 2          | 0.04             | 0.39             | 0.16                | 0.09          | 0.39          | 0.39             | 0.05      | 0.39      | 0.22         | 0.39     |
-| 3  | ViT_tune_4  | 0.005         | 8          | 0.04             | 0.39             | 0.16                | 0.09          | 0.39          | 0.39             | 0.05      | 0.39      | 0.22         | 0.39     |
-| 4  | ViT_tune_5  | 0.005         | 16         | 0.03             | 0.37             | 0.14                | 0.09          | 0.37          | 0.37             | 0.05      | 0.37      | 0.2          | 0.37     |
-| 5  | ViT_tune_6  | 0.005         | 64         | 0.03             | 0.37             | 0.14                | 0.09          | 0.37          | 0.37             | 0.05      | 0.37      | 0.2          | 0.37     |
-| 6  | ViT_tune_7  | 3e-05         | 2          | 0.55             | 0.65             | 0.66                | 0.53          | 0.65          | 0.65             | 0.54      | 0.65      | 0.65         | 0.65     |
-| 7  | ViT_tune_8  | 3e-05         | 8          | 0.61             | 0.68             | 0.68                | 0.54          | 0.68          | 0.68             | **0.57**      | 0.68      | 0.67         | 0.68     |
-| 8  | ViT_tune_9  | 3e-05         | 16         | **0.67**             | **0.69**             | **0.71**            | 0.5           | **0.69**         | **0.69**            | 0.55      | **0.69**      | **0.68**       | **0.69**    |
-| 9  | ViT_tune_10 | 3e-05         | 64         | 0.6              | 0.67             | 0.67                | 0.46          | 0.67          | 0.67             | 0.5       | 0.67      | 0.66         | 0.67     |
-| 10 | ViT_tune_12 | 5e-05         | 8          | 0.58             | 0.64             | 0.66                | 0.48          | 0.64          | 0.64             | 0.5       | 0.64      | 0.64         | 0.64     |
-| 11 | ViT_tune_13 | 5e-05         | 16         | 0.52             | 0.65             | 0.66                | 0.57          | 0.65          | 0.65             | 0.53      | 0.65      | 0.65         | 0.65     |
-| 12 | ViT_tune_14 | 5e-05         | 32         | 0.59             | 0.64             | 0.68                | 0.52          | 0.64          | 0.64             | 0.54      | 0.64      | 0.64         | 0.64     |
-| 13 | ViT_tune_15 | 5e-05         | 64         | 0.56             | 0.68             | 0.68                | 0.54          | 0.68          | 0.68             | 0.55      | 0.68      | 0.68         | 0.68     |
-| 14 | ViT_tune_16 | 2e-05         | 8          | 0.55             | 0.65             | 0.66                | 0.55          | 0.65          | 0.65             | 0.54      | 0.65      | 0.65         | 0.65     |
-| 15 | ViT_tune_17 | 2e-05         | 16         | 0.45             | 0.62             | 0.65                | **0.57**         | 0.62          | 0.62             | 0.49      | 0.62      | 0.62         | 0.62     |
-| 16 | ViT_tune_19 | 8e-05         | 64         | 0.58             | 0.66             | 0.67                | 0.56          | 0.66          | 0.66             | 0.55      | 0.66      | 0.66         | 0.66     |
-| 17 | ViT_tune_20 | 7e-05         | 64         | 0.57             | 0.67             | 0.67                | 0.51          | 0.67          | 0.67             | 0.53      | 0.67      | 0.66         | 0.67     |
-| 18 | ViT_tune_21 | 6e-05         | 64         | 0.58             | 0.67             | 0.67                | 0.51          | 0.67          | 0.67             | 0.54      | 0.67      | 0.66         | 0.67     |
+| model_name | learning_rate | batch_size | Precision(macro) | Precision(micro) | Recall(macro) | Recall(micro) | F1(macro) | F1(micro) | Accuracy |
+|------------|---------------|------------|------------------|------------------|---------------|---------------|-----------|-----------|----------|
+| ViT_1      | 5e-05         | 2          | 0.52             | 0.63             | 0.54          | 0.63          | 0.51      | 0.63      | 0.63     |
+| ViT_2      | 5e-05         | 8          | 0.58             | 0.65             | 0.53          | 0.65          | 0.55      | 0.65      | 0.65     |
+| ViT_3      | 5e-05         | 16         | 0.55             | 0.65             | 0.52          | 0.65          | 0.52      | 0.65      | 0.65     |
+| ViT_4      | 3e-05         | 2          | 0.59             | 0.67             | 0.53          | 0.67          | 0.55      | 0.67      | 0.67     |
+| ViT_5      | 3e-05         | 8          | **0.61**             | 0.67             | 0.56          | 0.67          | **0.57**      | 0.67      | 0.67     |
+| ViT_6      | 3e-05         | 16         | 0.61             | **0.67**             | 0.53          | **0.67**          | 0.55      | **0.67**      |**0.67**     |
+| ViT_7      | 3e-05         | 64         | 0.53             | 0.63             | 0.51          | 0.63          | 0.51      | 0.63      | 0.63     |
+| ViT_8      | 2e-05         | 2          | 0.6              | 0.67             | 0.55          | 0.67          | 0.56      | 0.67      | 0.67     |
+| ViT_9      | 2e-05         | 8          | 0.54             | 0.65             | **0.56**          | 0.65          | 0.54      | 0.65      | 0.65     |
+| ViT_10     | 2e-05         | 16         | 0.52             | 0.66             | 0.52          | 0.66          | 0.51      | 0.66      | 0.66     |
+| ViT_11     | 2e-05         | 64         | 0.52             | 0.66             | 0.44          | 0.66          | 0.45      | 0.66      | 0.66     |
+| ViT_12     | 5e-06         | 2          | 0.52             | 0.66             | 0.48          | 0.66          | 0.49      | 0.66      | 0.66     |
+| ViT_13     | 5e-06         | 8          | 0.49             | 0.64             | 0.42          | 0.64          | 0.44      | 0.64      | 0.64     |
+| ViT_14     | 5e-06         | 16         | 0.47             | 0.64             | 0.38          | 0.64          | 0.39      | 0.64      | 0.64     |
 <br/>
-Vit_tune_9 (learning rate: 3e-05, batch size: 16) performed best in the most categories and achieves the highest accuracy (0.69). However, as said before, F1 and precision are more important due to the imbalance in labels. Therefore, Vit_tune_8 (learning rate: 3e-05, batch size: 8) with a macro F1 of 0.57 and Vit_tune_17 (learning rate: 2e-05, batch size: 16) with a macro precision of 0.57 are also important for the error analysis. Overall, however, it can be said that the Vision Transformer approach performed worse than the original fine-tuned CNN by Milani et al.
+ViT_6 (learning rate: 3e-05, batch size: 16) performed best in the most categories and achieves the highest accuracy (0.67). However, as said before, F1 and recall are more important due to the imbalance in labels. Therefore, ViT_5 (learning rate: 3e-05, batch size: 8) with a macro F1 of 0.57 and ViT_9 (learning rate: 2e-05, batch size: 8) with a macro precision of 0.56 are also important for the error analysis. Overall, however, it can be said that the Vision Transformer approach performed worse than the original fine-tuned CNN by Milani et al.
 <br/>
 The poor results can be (partly) explained by the imbalance of classes. Therefore, the experiment was performed a second time on an altered data set. The classes with the highest frequency (MARY and NONE), were randomly shrunk to half of their size. The other classes were augmented by a horizontal flip, such that their amount doubled. Below the illustration of the altered data set:
 <br/>
