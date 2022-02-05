@@ -32,13 +32,12 @@ The original paper used a Fully Convolutional ResNet50 network pre-trained on Im
 - Normalized images<br/>
 - Augmented the data by horizontal flip<br/>
 <br/>
-Their results are depicted in the table below:<br/>
+Their results are depicted in the table below. Note that the classes are not exactly the same as in my version. I used the 11 classes (10 saints + NONE) that occurred the most frequent.:<br/>
 
 ![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/Milani_Results.png)
 <br/>
 <br/>
-For the first take on this task, I did not perform data augmentation but normalized the images. Note that the classes are not exactly the same as in Milani et al. I used the 11 classes (10 saints + NONE) that occurred the most frequent. Due to the strong label imbalance I put a focus on (macro) F1 and precision rather than accuracy.<br/>
-The ViT model that I used can be found on [huggingface](https://huggingface.co/google/vit-base-patch16-224-in21k). For hyperparameter tuning, I focused on the learning rate and the batch size. For the epochs, early stopping on the validation error was chosen. In most cases training stopped after 5 epochs. Increasing the learning rate correlated with an increase in epochs. Due to computational costs, the maximum batch size was 64, even though a bigger batch size could possibly improve the results.
+For the first take on this task, I did not perform data augmentation but normalized the images. The ViT model that I used can be found on [huggingface](https://huggingface.co/google/vit-base-patch16-224-in21k). For hyperparameter tuning, I focused on the learning rate and the batch size. For the epochs, early stopping on the validation error was chosen. In most cases training stopped after 5 epochs. Increasing the learning rate correlated with an increase in epochs. Due to computational costs, the maximum batch size was 64, even though a bigger batch size could possibly improve the results. Because of the strong label imbalance I put a focus on (macro) F1 and precision rather than accuracy
 <br/>
 |    | model_name  | learning_rate | batch_size | Precision(macro) | Precision(micro) | Precision(weighted) | Recall(macro) | Recall(micro) | Recall(weighted) | F1(macro) | F1(micro) | F1(weighted) | Accuracy |
 |----|-------------|---------------|------------|------------------|------------------|---------------------|---------------|---------------|------------------|-----------|-----------|--------------|----------|
@@ -95,7 +94,7 @@ For training on the altered data set, the hyperparameters of the previously best
 | ViT_tune_Red_4 | 2e-05           | 16         | **0.6**             | **0.62**             | 0.63                | 0.57          | **0.62**          | **0.62**             | 0.58      | **0.62**      | **0.62**         | **0.62**     |
 
 <br/>
-As it turns out the increase of F1 (XXX) and Recall (XXX) are only moderate. For an analysis via class activation maps (CAM), I therefore stuck with ViT_tune_corrected_6 which performed best according to F1 (0.57) in the first round and is trained on the entire dataset.<br/>
+As it turns out the increase of F1 (XXX) and Recall (XXX) are only moderate. For an analysis via class activation maps (CAM), I therefore stuck with ViT_tune_corrected_6 which performed best according to F1 (0.57) in the first round and is trained on the entire dataset.<br/><br/>
 The first image shows CAM for a painting of Virgin Mary. Since one of the iconographic cues for Mary is that she holds baby Jesus, the result should not only focus on Mary herself but also on the baby in her arms. As one can see the trained model performed well on the given image in this regard.
 
 ![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/MARY_02%2B%2B.png)
