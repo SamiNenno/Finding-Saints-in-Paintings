@@ -108,7 +108,7 @@ However, the next image displays how the model failed to pick up on the relevant
 
 ![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/MM.png)
 
-Another example for a correctly classified painting but based on the wrong features is this one of Sebastian. As mentioned before, Sebastian should be recognized by being tied to a post and shot with arrows. However, the model seem to have rather picked up mostly on the muscular upper body half.
+Another example for a correctly classified painting but based on the wrong features is this one of Sebastian. As mentioned before, Sebastian should be recognized by being tied to a post and shot with arrows. However, the model seem to have rather picked up mostly on the muscular torso.
 
 ![](https://raw.githubusercontent.com/SamiNenno/Finding-Saints-in-Paintings/main/Images/SEBASTIAN_01.png)
 
